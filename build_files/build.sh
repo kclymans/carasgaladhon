@@ -10,7 +10,51 @@ set -ouex pipefail
 # https://mirrors.rpmfusion.org/mirrorlist?path=free/fedora/updates/43/x86_64/repoview/index.html&protocol=https&redirect=1
 
 # this installs a package from fedora repos
-dnf5 install -y tmux 
+# Packages
+
+sysadmin_packages=(
+  "NetworkManager-tui"
+  "virt-install"
+  "virt-manager"
+  "virt-viewer"
+)
+
+programming_packages=(
+  "code"
+  "gh"
+  "git-lfs"
+)
+
+# including firefox because vscode needs it
+utility_packages=(
+  "firefox"
+  "keyd"
+  "neohtop"
+  "stow"
+  "scrcpy"
+)
+
+obs_packages=(
+  "obs-studio"
+  "obs-studio-plugin-droidcam"
+  "obs-studio-plugin-vaapi"
+  "obs-studio-plugin-webkitgtk"
+)
+
+docker_packages=(
+    "podman"
+)
+
+packages=(
+  ${sysadmin_packages[@]}
+  ${programming_packages[@]}
+  ${utility_packages[@]}
+  ${docker_packages[@]}
+  ${obs_packages[@]}
+)
+
+# install rpms
+dnf5 install -y ${packages[@]}
 
 # Use a COPR Example:
 #
@@ -22,3 +66,6 @@ dnf5 install -y tmux
 #### Example for enabling a System Unit File
 
 systemctl enable podman.socket
+
+
+#/ctx/build.sh
