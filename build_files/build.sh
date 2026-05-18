@@ -20,7 +20,6 @@ sysadmin_packages=(
 )
 
 programming_packages=(
-  "code"
   "gh"
   "git-lfs"
 )
@@ -28,10 +27,7 @@ programming_packages=(
 # including firefox because vscode needs it
 utility_packages=(
   "firefox"
-  "keyd"
-  "neohtop"
   "stow"
-  "scrcpy"
 )
 
 obs_packages=(
