@@ -59,5 +59,5 @@ dnf5 install -y ${packages[@]}
 systemctl enable podman.socket
 
 # Run other build scripts
-./ctx/configure_kde.sh
+#./ctx/configure_kde.sh
 ./ctx/just.sh
