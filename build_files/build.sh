@@ -37,15 +37,10 @@ obs_packages=(
   "obs-studio-plugin-webkitgtk"
 )
 
-docker_packages=(
-    "podman"
-)
-
 packages=(
   ${sysadmin_packages[@]}
   ${programming_packages[@]}
   ${utility_packages[@]}
-  ${docker_packages[@]}
   ${obs_packages[@]}
 )
 
@@ -63,5 +58,6 @@ dnf5 install -y ${packages[@]}
 
 systemctl enable podman.socket
 
-
-#/ctx/build.sh
+# Run other build scripts
+./ctx/configure_kde.sh
+./ctx/just.sh
